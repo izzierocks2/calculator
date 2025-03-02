@@ -20,7 +20,16 @@
     border: 2px solid;
     border-radius: 15px;
     width: 300px;
-    height: 80px;
+    height: 150px;
     background-color: white;
     font-size: 3em;
+}
+
+h1{
+    text-align: center;
+}
+
+#grad{
+    background-image: linear-gradient(purple, pink);
+    height: 920px;
 }

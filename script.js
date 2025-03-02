@@ -1,7 +1,7 @@
 const additionButton = document.getElementById('addition-button');
 const subtractionButton = document.getElementById('subtraction-button');
-const multiplicationButton = document.getElementById('multiplication-button');
-const divisionButton = document.getElementById('division-button');
+/*const multiplicationButton = document.getElementById('multiplication-button');*/
+/*const divisionButton = document.getElementById('division-button');*/
 const oneButton = document.getElementById('one-button');
 const twoButton = document.getElementById('two-button');
 const threeButton = document.getElementById('three-button');
@@ -32,16 +32,25 @@ additionButton.addEventListener("click", () =>{
 });
 
 subtractionButton.addEventListener("click", () =>{
+    operation = "-";
     screen.textContent += "-";
+    previousNumber = currentNumber;
+    currentNumber = "";
 });
 
-multiplicationButton.addEventListener("click", () =>{
+/*multiplicationButton.addEventListener("click", () =>{
+    operation = "x";
     screen.textContent += "x";
-});
+    previousNumber = currentNumber;
+    currentNumber = "";
+});*/
 
-divisionButton.addEventListener("click", () =>{
+/*divisionButton.addEventListener("click", () =>{
+    operation = "/";
     screen.textContent += "/";
-});
+    previousNumber = currentNumber;
+    currentNumber = "";
+});*/
 
 oneButton.addEventListener("click", () =>{
     screen.textContent += "1";
@@ -99,5 +108,11 @@ let result = 0
 
 enterButton.addEventListener("click", () =>{
     if (operation === "+") {result = Number(previousNumber) + Number(currentNumber)};
+    document.getElementById("display").textContent = result;
+    if (operation === "-") {result = Number(previousNumber) - Number(currentNumber)};
+    document.getElementById("display").textContent = result;
+    if (operation === "x") {result = Number(previousNumber) * Number(currentNumber)};
+    document.getElementById("display").textContent = result;
+    if (operation === "/") {result = Number(previousNumber) / Number(currentNumber)};
     document.getElementById("display").textContent = result;
 });
