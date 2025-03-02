@@ -1,7 +1,5 @@
 const additionButton = document.getElementById('addition-button');
 const subtractionButton = document.getElementById('subtraction-button');
-/*const multiplicationButton = document.getElementById('multiplication-button');*/
-/*const divisionButton = document.getElementById('division-button');*/
 const oneButton = document.getElementById('one-button');
 const twoButton = document.getElementById('two-button');
 const threeButton = document.getElementById('three-button');
@@ -14,6 +12,7 @@ const nineButton = document.getElementById('nine-button');
 const clearButton = document.getElementById('clear-button');
 const enterButton = document.getElementById('enter-button');
 const screen = document.querySelector('.screen');
+const themeToggleButton = document.getElementById('theme-toggle-button');
 let currentNumber = "";
 let previousNumber = "";
 let operation = "";
@@ -37,20 +36,6 @@ subtractionButton.addEventListener("click", () =>{
     previousNumber = currentNumber;
     currentNumber = "";
 });
-
-/*multiplicationButton.addEventListener("click", () =>{
-    operation = "x";
-    screen.textContent += "x";
-    previousNumber = currentNumber;
-    currentNumber = "";
-});*/
-
-/*divisionButton.addEventListener("click", () =>{
-    operation = "/";
-    screen.textContent += "/";
-    previousNumber = currentNumber;
-    currentNumber = "";
-});*/
 
 oneButton.addEventListener("click", () =>{
     screen.textContent += "1";
@@ -116,3 +101,19 @@ enterButton.addEventListener("click", () =>{
     if (operation === "/") {result = Number(previousNumber) / Number(currentNumber)};
     document.getElementById("display").textContent = result;
 });
+
+const toggleTheme = () => {
+    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
+
+    if (document.body.classList.contains('dark-theme')) {
+        themeToggleButton.textContent = '🌕';  // Change icon to the Sun for light mode
+      } else {
+        themeToggleButton.textContent = '🌙';  // Change icon to the Moon for dark mode
+      }
+    };
+
+    themeToggleButton.addEventListener('click', toggleTheme);
+    document.body.classList.add('light-theme');
+
+
